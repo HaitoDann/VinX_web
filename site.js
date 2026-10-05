@@ -18,7 +18,7 @@ const fmt = (n) => Number(n).toLocaleString(EN ? 'en-US' : 'fr-FR');
 
 async function live() {
   const api = (window.VINX_API || '').replace(/\/$/, '');
-  if (!api) return;
+  if (!api || !$('l-height')) return;
   try {
     const get = (p) => fetch(api + p, { cache: 'no-store' }).then((r) => r.json());
     const [h, v, s] = await Promise.all([get('/health'), get('/validators'), get('/network/stats')]);

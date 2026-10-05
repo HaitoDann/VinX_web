@@ -1,0 +1,35 @@
+/* Tableau de bord du réseau (reseau.html, en/network.html). */
+.dash{padding-top:56px}
+.dash .section-head{margin-bottom:28px}
+.dash h1{font-size:clamp(30px,3.8vw,42px);margin-top:16px}
+.api-form{display:flex;align-items:center;gap:10px;margin-bottom:18px;max-width:560px}
+.api-form label{color:var(--dim);font-size:14px}
+.api-form input{flex:1;min-width:0;background:var(--surface);color:var(--text);border:1px solid var(--border-2);
+  border-radius:var(--r);padding:8px 12px;font:14px var(--mono)}
+.api-form input:focus{outline:2px solid var(--accent-line);border-color:var(--accent)}
+.live-state.err .dot{background:#d0533f}
+.kpis{grid-template-columns:repeat(5,1fr);margin-bottom:28px}
+.kpis b{font-size:18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dash-grid{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:20px;align-items:start}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:18px 20px;min-width:0}
+.panel h3{font-size:16px;margin-bottom:12px}
+.scroll{overflow-x:auto}
+.panel table{width:100%;border-collapse:collapse;font-size:14px}
+.panel th{text-align:left;color:var(--muted);font-weight:500;font-size:12px;padding:6px;white-space:nowrap;border-bottom:1px solid var(--border)}
+.panel td{padding:8px 6px;border-bottom:1px solid var(--border);white-space:nowrap}
+.panel tr:last-child td{border-bottom:0}
+.panel .num{text-align:right;font-variant-numeric:tabular-nums}
+.mono{font-family:var(--mono);font-size:13px}
+.hash{color:var(--muted)}
+.tag{font:500 11px var(--font);color:var(--accent);background:var(--accent-soft);border:1px solid var(--accent-line);
+  border-radius:20px;padding:1px 7px;margin-left:4px}
+.pill{font-size:12px;padding:2px 8px;border-radius:20px;border:1px solid var(--border-2);color:var(--dim)}
+.pill.ok{color:var(--ok);border-color:currentColor}
+.pill.warn{color:var(--warn);border-color:currentColor}
+.note{color:var(--muted);font-size:13px;margin-top:20px}
+@media (max-width:900px){
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .dash-grid{grid-template-columns:minmax(0,1fr)}
+  .api-form label{display:none}
+  .kpis b{font-size:16px}
+}

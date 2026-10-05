@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Réseau en direct — VinX Ledger</title>
+<meta name="description" content="Tableau de bord en direct du testnet VinX : hauteur, blocs, validateurs, offre en circulation.">
+<meta property="og:title" content="VinX Ledger — le rail de paiement léger">
+<meta property="og:description" content="Un seul token, une seule fonction : payer. Définitif en quelques secondes, validable depuis chez soi.">
+<meta property="og:image" content="assets/logo.png">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="alternate" hreflang="fr" href="https://haitodann.github.io/VinX_web/">
+<link rel="alternate" hreflang="en" href="https://haitodann.github.io/VinX_web/en/">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="dashboard.css">
+<script>try{var t=localStorage.getItem('vinx-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 3 4 14h7l-1 7 9-11h-7z"/></symbol>
+  <symbol id="i-feather" viewBox="0 0 24 24"><path d="M20 4c-7 0-13 5-13 12v4"/><path d="M7 16h6c4 0 7-5 7-12"/><path d="M4 20l7-7"/></symbol>
+  <symbol id="i-receipt" viewBox="0 0 24 24"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.5a5 5 0 0 1 5.5 5.5"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4.5 4.5L19 7"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 0-14.5-4.5L3 9"/><path d="M3 4v5h5"/><path d="M4 13a8 8 0 0 0 14.5 4.5L21 15"/><path d="M21 20v-5h-5"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></symbol>
+  <symbol id="i-qr" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20 14v.01M14 20h.01M17 20h4v-3"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-dl" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></symbol>
+  <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-4 1.5-4-2-6-2.5M15 21v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></symbol>
+</svg>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="./"><img src="assets/logo.png" alt="">VinX <small>Ledger</small></a>
+    <nav class="main" id="nav"><a href="./">Retour au site</a></nav>
+    <div class="right">
+      <a class="icon-btn lang" href="en/network.html" hreflang="en" title="English">EN</a>
+      <button class="icon-btn" id="theme" title="Thème clair / sombre" aria-label="Changer de thème"><svg class="i"><use href="#i-moon"/></svg></button>
+      <a class="icon-btn" href="https://github.com/HaitoDann/VinX-Ledger" title="Code source" aria-label="Code source sur GitHub"><svg class="i"><use href="#i-github"/></svg></a>
+      <a class="btn small" href="./#telecharger">Télécharger</a>
+      <button class="icon-btn menu-btn" id="menu" aria-label="Menu"><svg class="i"><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="dash">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Réseau</span>
+        <h1>Le testnet en direct.</h1>
+        <p>Les données viennent directement d’un nœud du réseau, actualisées à chaque bloc.</p>
+      </div>
+      <form class="api-form" id="api-form">
+        <label for="api">Nœud</label>
+        <input id="api" type="url" placeholder="https://nœud.exemple" spellcheck="false" autocomplete="off">
+        <button class="btn small" type="submit">Se connecter</button>
+      </form>
+      <div class="live-state" id="d-state"><span class="dot"></span><span id="d-txt"></span></div>
+      <div class="live kpis"><div><b id="k-height">—</b><span>Hauteur</span></div><div><b id="k-final">—</b><span>Finalisée</span></div><div><b id="k-age">—</b><span>Dernier bloc</span></div><div><b id="k-bt">—</b><span>Temps de bloc</span></div><div><b id="k-vals">—</b><span>Validateurs</span></div><div><b id="k-quorum">—</b><span>Quorum / puissance</span></div><div><b id="k-mempool">—</b><span>Transactions en attente</span></div><div><b id="k-fee">—</b><span>Frais de base</span></div><div><b id="k-supply">—</b><span>VINX en circulation</span></div><div><b id="k-left">—</b><span>VINX restant à émettre</span></div></div>
+      <div class="dash-grid">
+        <div class="panel">
+          <h3>Derniers blocs</h3>
+          <div class="scroll"><table><thead><tr><th class="">Bloc</th><th class="">Heure</th><th class="">Proposé par</th><th class="num">Tx</th><th class="num">Signatures</th><th class="">Empreinte</th></tr></thead><tbody id="d-blocks"></tbody></table></div>
+        </div>
+        <div class="panel">
+          <h3>Validateurs actifs</h3>
+          <div class="scroll"><table><thead><tr><th class="">Adresse</th><th class="num">Puissance</th><th class="num">Manqués</th><th class="">État</th></tr></thead><tbody id="d-vals"></tbody></table></div>
+        </div>
+      </div>
+      <p class="note">Le site est servi en HTTPS : le nœud doit l’être aussi (ou tourner sur cette machine : <span class="mono">http://127.0.0.1:8545</span>).</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="./"><img src="assets/logo.png" alt="">VinX <small>Ledger</small></a>
+    <nav>
+      <a href="https://github.com/HaitoDann/VinX-Ledger">GitHub</a>
+      <a href="https://github.com/HaitoDann/VinX-Ledger/blob/main/TESTNET.md">Testnet</a>
+      <a href="https://github.com/HaitoDann/VinX-Ledger/tree/main/docs/adr">Décisions techniques</a>
+      <a href="https://github.com/HaitoDann/VinX-Ledger/blob/main/whitepaper.md">Livre blanc</a>
+    </nav>
+    <span>VinX — rail de paiement · © 2026</span>
+  </div>
+</footer>
+
+<script src="config.js"></script>
+<script src="dashboard.js"></script>
+<script src="site.js"></script>
+</body>
+</html>
