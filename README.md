@@ -6,8 +6,9 @@ l'interface web et l'application : IBM Plex, un seul accent vert, thèmes clair 
 
 ## Publication
 
-Chaque push sur `main` publie le site sur GitHub Pages (`.github/workflows/pages.yml`).
-Il faut l'activer une fois : **Settings → Pages → Source : GitHub Actions**.
+GitHub Pages sert directement la branche `main` : **Settings → Pages → Build and
+deployment → Deploy from a branch → `main` / `/ (root)`**. Chaque push met le site à
+jour en une minute environ. `.nojekyll` désactive le traitement Jekyll, inutile ici.
 
 ## Fichiers
 
