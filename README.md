@@ -14,11 +14,13 @@ jour en une minute environ. `.nojekyll` désactive le traitement Jekyll, inutile
 
 | Fichier | Rôle |
 |---|---|
-| `index.html` | la page |
+| `index.html` | la page en français |
+| `en/index.html` | la page en anglais (mêmes styles et scripts) |
+| `demo.js` | la démo de paiement (textes FR/EN selon `<html lang>`) |
 | `style.css` | la charte (mêmes couleurs que l'interface web) |
 | `site.js` | thème, menu mobile, état du réseau en direct |
 | `config.js` | adresse HTTPS d'un nœud du testnet (`VINX_API`) pour la section « Réseau » |
-| `assets/` | logo et polices IBM Plex (licence OFL, `assets/fonts/OFL-IBM-Plex.txt`) |
+| `assets/` | logo, polices IBM Plex (OFL) et `qrcode.js` (qrcode-generator, MIT) |
 
 ## Voir en local
 
@@ -31,3 +33,7 @@ python3 -m http.server 8000   # puis http://localhost:8000
 Laisser `VINX_API` vide tant que le testnet n'est pas ouvert. Ensuite, y mettre l'adresse
 HTTPS d'un nœud public. Le site étant en HTTPS, le nœud doit l'être aussi, derrière un proxy
 qui ajoute `Access-Control-Allow-Origin: *` aux routes GET.
+
+## Traduire
+
+Toute modification de `index.html` doit être reportée dans `en/index.html` (chemins en `../`).

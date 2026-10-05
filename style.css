@@ -276,3 +276,5 @@ footer a:hover{color:var(--text)}
 .demo-note{margin-top:16px;color:var(--muted);font-size:14px}
 @media (max-width:960px){.demo{grid-template-columns:1fr}}
 @media (max-width:600px){.fields{grid-template-columns:1fr}.till{grid-template-columns:1fr;justify-items:center;text-align:center}}
+
+.icon-btn.lang{font-weight:600;font-size:13px;padding:7px 9px;letter-spacing:.02em}

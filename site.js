@@ -13,7 +13,8 @@ const nav = $('nav');
 $('menu').onclick = () => nav.classList.toggle('open');
 nav.querySelectorAll('a').forEach((a) => (a.onclick = () => nav.classList.remove('open')));
 
-const fmt = (n) => Number(n).toLocaleString('fr-FR');
+const EN = document.documentElement.lang === 'en';
+const fmt = (n) => Number(n).toLocaleString(EN ? 'en-US' : 'fr-FR');
 
 async function live() {
   const api = (window.VINX_API || '').replace(/\/$/, '');
@@ -24,12 +25,14 @@ async function live() {
     const age = Math.max(0, Math.round(Date.now() / 1000 - h.tip_timestamp));
     $('l-height').textContent = '#' + fmt(h.height);
     $('l-vals').textContent = fmt(v.count);
-    $('l-block').textContent = age < 60 ? `il y a ${age} s` : `il y a ${Math.round(age / 60)} min`;
+    $('l-block').textContent = EN
+      ? (age < 60 ? `${age} s ago` : `${Math.round(age / 60)} min ago`)
+      : (age < 60 ? `il y a ${age} s` : `il y a ${Math.round(age / 60)} min`);
     $('l-supply').textContent = fmt(Math.round(Number(s.circulating_supply.split(' ')[0])));
     $('live-state').classList.add('on');
-    $('live-txt').textContent = `Testnet en ligne · chaîne ${h.chain_id}`;
+    $('live-txt').textContent = EN ? `Testnet online · chain ${h.chain_id}` : `Testnet en ligne · chaîne ${h.chain_id}`;
   } catch (_) {
-    $('live-txt').textContent = 'Testnet momentanément injoignable.';
+    $('live-txt').textContent = EN ? 'Testnet unreachable for now.' : 'Testnet momentanément injoignable.';
   }
 }
 live();
