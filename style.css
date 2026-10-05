@@ -234,3 +234,45 @@ footer a:hover{color:var(--text)}
   .g2,.g3,.g4,.road,.dl,.steps{grid-template-columns:1fr}
   .bar .right .btn{display:none}
 }
+
+/* Démo de paiement */
+.demo{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:20px;align-items:stretch}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;display:flex;flex-direction:column}
+.panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+.panel-head h3{font-size:16px}
+.panel-head .tag{font-size:12px;color:var(--muted);border:1px solid var(--border-2);border-radius:999px;padding:2px 10px}
+.field{display:block;font-size:13px;font-weight:500;color:var(--dim);margin:0 0 6px}
+.input{font:inherit;width:100%;padding:10px 12px;border-radius:var(--r);border:1px solid var(--border-2);background:var(--bg);color:var(--text);outline:none}
+.input:focus{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-soft)}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.till{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;margin-top:20px;padding-top:20px;border-top:1px solid var(--border)}
+.qr-box{width:168px;height:168px;background:#fff;border-radius:var(--r-lg);display:grid;place-items:center;padding:8px;position:relative}
+.qr-box svg{width:100%;height:100%}
+.qr-box .paid{position:absolute;inset:0;border-radius:var(--r-lg);background:color-mix(in srgb,var(--accent) 92%,transparent);
+  color:var(--on-accent);display:none;place-items:center;text-align:center;font-weight:600}
+.qr-box.ok .paid{display:grid}
+.uri{font-family:var(--mono);font-size:12px;color:var(--muted);word-break:break-all;margin-top:8px}
+.till-amount{font-family:var(--mono);font-size:30px;font-weight:500}
+.till-state{display:flex;align-items:center;gap:8px;margin-top:10px;font-size:14px;color:var(--dim)}
+.till-state .dot{width:8px;height:8px;border-radius:50%;background:var(--warn);animation:blink 1.4s infinite}
+.till-state.ok{color:var(--text);font-weight:500}
+.till-state.ok .dot{background:var(--ok);animation:none}
+@keyframes blink{50%{opacity:.3}}
+.phone{margin:0 auto;width:100%;max-width:300px;border:1px solid var(--border-2);border-radius:28px;padding:14px;background:var(--bg);flex:1;display:flex}
+.screen{flex:1;border-radius:18px;background:var(--surface);border:1px solid var(--border);padding:18px;display:flex;flex-direction:column;gap:12px;min-height:340px}
+.screen .who{font-size:13px;color:var(--muted)}
+.screen .amt{font-family:var(--mono);font-size:28px;font-weight:500}
+.screen .rows{border:1px solid var(--border);border-radius:var(--r);font-size:13px}
+.screen .rows div{display:flex;justify-content:space-between;gap:8px;padding:8px 10px;border-bottom:1px solid var(--border)}
+.screen .rows div:last-child{border-bottom:0}
+.screen .rows span:first-child{color:var(--muted)}
+.screen .grow{flex:1}
+.progress{height:4px;border-radius:2px;background:var(--surface-2);overflow:hidden}
+.progress i{display:block;height:100%;width:0;background:var(--accent);transition:width .25s linear}
+.screen .state{font-size:14px;color:var(--dim);min-height:21px}
+.screen .done{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;flex:1;text-align:center}
+.check{width:56px;height:56px;border-radius:50%;background:var(--accent);color:var(--on-accent);display:grid;place-items:center}
+.check svg{width:28px;height:28px;stroke-width:2.4}
+.demo-note{margin-top:16px;color:var(--muted);font-size:14px}
+@media (max-width:960px){.demo{grid-template-columns:1fr}}
+@media (max-width:600px){.fields{grid-template-columns:1fr}.till{grid-template-columns:1fr;justify-items:center;text-align:center}}

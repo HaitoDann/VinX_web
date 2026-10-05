@@ -36,7 +36,7 @@
     <a class="brand" href="#top"><img src="assets/logo.png" alt="">VinX <small>Ledger</small></a>
     <nav class="main" id="nav">
       <a href="#pourquoi">Pourquoi VinX</a>
-      <a href="#paiement">Payer</a>
+      <a href="#demo">Démo</a>
       <a href="#valider">Valider</a>
       <a href="#economie">Économie</a>
       <a href="#developpeurs">Développeurs</a>
@@ -131,6 +131,39 @@
         <div class="step"><h3>C'est payé, et prouvé</h3>
           <p>Au bloc suivant, le paiement est irréversible. Chacun garde un reçu que n'importe qui peut vérifier, sans faire confiance à un serveur.</p></div>
       </div>
+    </div>
+  </section>
+
+  <!-- ── Démo de paiement ─────────────────────────────────────────────── -->
+  <section id="demo">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Démo</span>
+        <h2>Essayez un paiement.</h2>
+        <p>Côté caisse, saisissez un montant : le QR code contient l'adresse, le montant et la référence. Côté client, payez — la caisse voit le paiement arriver, définitif.</p>
+      </div>
+      <div class="demo">
+        <div class="panel">
+          <div class="panel-head"><h3>Caisse du commerçant</h3><span class="tag">Boulangerie du Port</span></div>
+          <div class="fields">
+            <div><label class="field" for="d-amount">Montant (VINX)</label><input class="input mono" id="d-amount" value="12,40" inputmode="decimal"></div>
+            <div><label class="field" for="d-ref">Référence</label><input class="input" id="d-ref" value="TICKET-0815" maxlength="32"></div>
+          </div>
+          <div class="till">
+            <div class="qr-box" id="d-qr"><div class="paid">Payé ✓</div></div>
+            <div>
+              <div class="till-amount" id="d-till-amount">12,40 VINX</div>
+              <div class="till-state" id="d-till-state"><span class="dot"></span><span id="d-till-txt">En attente du paiement…</span></div>
+              <div class="uri" id="d-uri"></div>
+            </div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><h3>Téléphone du client</h3><span class="tag">Application VinX</span></div>
+          <div class="phone"><div class="screen" id="d-screen"></div></div>
+        </div>
+      </div>
+      <p class="demo-note" id="d-note">Démonstration : aucune transaction réelle n'est envoyée. Sur le réseau, la caisse surveille simplement les paiements reçus portant sa référence.</p>
     </div>
   </section>
 
@@ -344,7 +377,9 @@
   </div>
 </footer>
 
+<script src="assets/qrcode.js"></script>
 <script src="config.js"></script>
+<script src="demo.js"></script>
 <script src="site.js"></script>
 </body>
 </html>
